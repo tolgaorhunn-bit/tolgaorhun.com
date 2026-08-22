@@ -95,7 +95,7 @@ strong { color: var(--ivory); font-weight: 600; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 132px;
+  min-height: 120px;
 }
 .brand {
   display: flex;
@@ -112,12 +112,19 @@ strong { color: var(--ivory); font-weight: 600; }
   flex-shrink: 0;
 }
 .brand-lockup img {
-  height: 96px;
-  width: auto;
+  width: 360px;
+  max-width: none;
+  height: auto;
+  max-height: 95px;
+  object-fit: contain;
+  object-position: left center;
   display: block;
 }
+@media (max-width: 1100px) {
+  .brand-lockup img { width: 280px; max-height: 80px; }
+}
 @media (max-width: 560px) {
-  .brand-lockup img { height: 60px; }
+  .brand-lockup img { width: 210px; max-width: 65vw; max-height: 65px; }
 }
 
 /* ---------- Mini cards (Advisory "work together" / capability grids) ---------- */
@@ -238,7 +245,7 @@ strong { color: var(--ivory); font-weight: 600; }
 @media (max-width: 720px) {
   .nav-links {
     position: fixed;
-    inset: 132px 0 auto 0;
+    inset: 100px 0 auto 0;
     flex-direction: column;
     background: var(--navy-900);
     padding: 24px 32px;
