@@ -11,7 +11,7 @@ Static site served at `https://tolgaorhun.com/diamonite/` via GitHub Pages.
 | `gemstones.html` | Gemstone browser (desktop vertical menu, mobile horizontal scroll) |
 | `contact.html` | Contact / consultation (WhatsApp) |
 | `style.css` | All styles (design tokens at the top, responsive rules at the bottom) |
-| `app.js` | Mobile menu, gemstone browser, WhatsApp link |
+| `app.js` | Mobile menu, gemstone browser (desktop: tabs; mobile: scrolling list with auto-highlighting tabs and a floating contact button), WhatsApp link |
 | `stones.json` | The 17 gemstone categories (name, slug, description) |
 | `assets/` | All images: `hero-gems.webp` (home banner), `editorial-1…6.webp`, `home-hero.webp`, and one `<stone-slug>.webp` per gemstone |
 
