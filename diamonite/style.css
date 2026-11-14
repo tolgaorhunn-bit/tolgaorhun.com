@@ -263,8 +263,8 @@ footer :focus-visible {
 /* ---------- Home ---------- */
 .home-hero {
   width: 100%;
-  height: min(53vw, 680px);
-  min-height: 340px;
+  height: min(36vw, 500px);
+  min-height: 260px;
   overflow: hidden;
   background: #c8c4c1;
 }
@@ -274,7 +274,7 @@ footer :focus-visible {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center;
+  object-position: center 70%;
 }
 
 .intro {
@@ -393,7 +393,7 @@ footer :focus-visible {
 .editorial-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 740px;
+  min-height: 600px;
 }
 
 .editorial-photo img {
@@ -442,7 +442,7 @@ footer :focus-visible {
 .gem-browser {
   display: grid;
   grid-template-columns: 210px minmax(0, 1.15fr) minmax(0, 1fr);
-  min-height: 680px;
+  min-height: 560px;
   max-width: 1700px;
   margin: auto;
 }
@@ -492,7 +492,7 @@ footer :focus-visible {
 
 .stone-image {
   position: relative;
-  min-height: 680px;
+  min-height: 560px;
   background: #deddda;
   overflow: hidden;
 }
@@ -714,9 +714,9 @@ footer small {
 
   /* Home */
   .home-hero {
-    height: 65svh;
-    min-height: 380px;
-    max-height: 620px;
+    height: 40svh;
+    min-height: 240px;
+    max-height: 360px;
   }
 
   .intro {
@@ -732,7 +732,7 @@ footer small {
   }
 
   .home-story-image {
-    height: 440px;
+    height: 340px;
   }
 
   .home-story-copy {
@@ -753,7 +753,7 @@ footer small {
   }
 
   .editorial-photo {
-    height: 490px;
+    height: 360px;
   }
 
   .editorial-text {
@@ -819,8 +819,8 @@ footer small {
 
   .stone-image {
     min-height: 0;
-    height: 115vw;
-    max-height: 620px;
+    height: 85vw;
+    max-height: 460px;
   }
 
   .stone-copy {
