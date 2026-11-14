@@ -1,17 +1,30 @@
-# DIAMONITE — website package
+# DIAMONITE — website
 
-Upload the CONTENTS of this folder into `tolgaorhun.com/diamonite/` on GitHub. Keep the `assets` folder intact. Do not upload the outer `diamonite-final` folder.
+Static site served at `https://tolgaorhun.com/diamonite/` via GitHub Pages.
 
-Pages: Home (`index.html`), About Us, Gemstones (17 categories, desktop vertical menu and mobile horizontally scrollable menu), Contact.
+## Structure
 
-### Images
-- `assets/hero.webp`: text-free home banner.
-- `assets/<stone-slug>.webp`: 17 distinct editorial image crops, one per category. These are *conceptual styling inspiration*, NOT photographs of the actual gemstones in stock, and may not depict the exact gemstone mineral or colour. Replace with approved custom imagery before a public launch.
+| File | Purpose |
+| --- | --- |
+| `index.html` | Home |
+| `about.html` | About Us / Our Story |
+| `gemstones.html` | Gemstone browser (desktop vertical menu, mobile horizontal scroll) |
+| `contact.html` | Contact / consultation (WhatsApp) |
+| `style.css` | All styles (design tokens at the top, responsive rules at the bottom) |
+| `app.js` | Mobile menu, gemstone browser, WhatsApp link |
+| `stones.json` | The 17 gemstone categories (name, slug, description) |
+| `assets/` | All images: `hero.webp`, `editorial-1…6.webp`, `home-hero.webp`, and one `<stone-slug>.webp` per gemstone |
 
-### Before publishing
-- Add your WhatsApp number in `app.js`: `const WA_NUMBER='974XXXXXXXX';` (digits only). Until configured, the WhatsApp button is intentionally inactive.
-- Check the contact form: static GitHub Pages does not accept submissions without a form service.
-- Check stone category names/descriptions against your actual inventory.
+Fonts: Cormorant Garamond (headings) and Jost (body), loaded from Google Fonts with Georgia / Arial fallbacks.
+
+## Images
+
+The gemstone images in `assets/<stone-slug>.webp` are *conceptual styling inspiration*, not photographs of stock, and may not show the exact mineral or colour. Replace them with approved imagery before a public launch.
+
+## Before publishing
+
+- Add the WhatsApp number in `app.js`: `const WA_NUMBER='974XXXXXXXX';` (digits only, with country code). Until it is set, the Contact button is intentionally inactive.
+- Check stone names and descriptions in `stones.json` against the actual inventory.
 - Preview on mobile and desktop.
 
 No checkout, no prices, no online jewellery design workflow.
