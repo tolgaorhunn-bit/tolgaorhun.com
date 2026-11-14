@@ -263,10 +263,20 @@ img {
 .home-hero {
   position: relative;
   width: 100%;
-  height: min(36vw, 500px);
-  min-height: 260px;
+  height: min(40vw, 600px);
+  min-height: 300px;
   overflow: hidden;
-  background: #c8c4c1;
+  background: linear-gradient(120deg, #f3efed 0%, #e4dcd9 100%);
+}
+
+/* Desktop: full photo on the right, fading into the plain left panel */
+.home-hero picture {
+  position: absolute;
+  inset: 0 0 0 auto;
+  height: 100%;
+  aspect-ratio: 3 / 2;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 30%);
 }
 
 .home-hero img {
@@ -274,16 +284,24 @@ img {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center 70%;
+  object-position: center;
 }
 
-/* "Explore Gemstones" button placed over the hero banner */
-.hero-cta {
+/* Title + "Explore Gemstones" button in the plain left part of the banner */
+.hero-copy {
   position: absolute;
-  left: 50%;
-  bottom: clamp(24px, 4vw, 48px);
-  transform: translateX(-50%);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+  left: 7%;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 36%;
+}
+
+.hero-title {
+  font-size: clamp(28px, 3.2vw, 50px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.025em;
+  margin: 16px 0 30px;
 }
 
 .intro {
@@ -722,18 +740,48 @@ footer small {
   }
 
   /* Home */
-  .hero-cta {
+  /* Mobile: photo on top, button in its own strip below (never over the stones) */
+  .home-hero {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    background: var(--white);
+    text-align: center;
+  }
+
+  .home-hero picture {
+    position: static;
+    display: block;
+    aspect-ratio: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    height: 40svh;
+    min-height: 240px;
+    max-height: 360px;
+  }
+
+  .home-hero img {
+    object-position: 70% center;
+  }
+
+  .hero-copy {
+    position: static;
+    transform: none;
+    max-width: none;
+    padding: 30px 24px 34px;
+  }
+
+  .hero-title {
+    font-size: 30px;
+    margin: 12px 0 22px;
+  }
+
+  .hero-copy .button {
     min-width: 0;
     gap: 18px;
     padding: 14px 22px;
     font-size: 11px;
     white-space: nowrap;
-  }
-
-  .home-hero {
-    height: 40svh;
-    min-height: 240px;
-    max-height: 360px;
   }
 
   .intro {

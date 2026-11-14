@@ -13,7 +13,7 @@ Static site served at `https://tolgaorhun.com/diamonite/` via GitHub Pages.
 | `style.css` | All styles (design tokens at the top, responsive rules at the bottom) |
 | `app.js` | Mobile menu, gemstone browser, WhatsApp link |
 | `stones.json` | The 17 gemstone categories (name, slug, description) |
-| `assets/` | All images: `hero.webp`, `editorial-1…6.webp`, `home-hero.webp`, and one `<stone-slug>.webp` per gemstone |
+| `assets/` | All images: `hero-gems.webp` (home banner), `editorial-1…6.webp`, `home-hero.webp`, and one `<stone-slug>.webp` per gemstone |
 
 ## Brand (Line Agency proposal — Direction 1)
 
