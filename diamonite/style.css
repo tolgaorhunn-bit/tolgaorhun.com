@@ -1,19 +1,25 @@
 /* ==========================================================================
    DIAMONITE — Bespoke Fine Jewellery
+   Brand: Line Agency proposal, Direction 1 ("An Expression of the Uncommon")
+   Black / white / metallic, with deep indigo accents.
    ========================================================================== */
 
 /* ---------- Design tokens ---------- */
 :root {
-  --ink: #242424;
-  --ink-soft: #5c5957;
-  --muted: #777;
-  --paper: #f8f7f4;
-  --stone: #e9e7e3;
-  --line: #eae8e4;
+  --ink: #0c0c0d;
+  --ink-soft: #55575c;
+  --muted: #7a7c82;
+  --paper: #ffffff;
+  --stone: #edeff1;
+  --line: #e2e4e7;
   --white: #fff;
 
-  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Jost', Arial, Helvetica, sans-serif;
+  --indigo: #2b1b59;
+  --indigo-deep: #150938;
+  --silver: linear-gradient(180deg, #fdfdfd 0%, #b9bcc2 32%, #f4f4f5 50%, #8d9097 70%, #e6e7e9 100%);
+
+  --font-sans: 'Manrope', Arial, Helvetica, sans-serif;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
 
   --header-h: 84px;
 }
@@ -52,6 +58,15 @@ img {
   max-width: 100%;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 /* Visible keyboard focus everywhere */
 :focus-visible {
   outline: 2px solid var(--ink);
@@ -77,9 +92,10 @@ footer :focus-visible {
 
 /* ---------- Typography ---------- */
 .eyebrow {
+  font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: .32em;
-  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
 }
 
 .intro h1,
@@ -89,8 +105,9 @@ footer :focus-visible {
 .collection-heading h1,
 .contact-section h1,
 .stone-copy h2 {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: -.025em;
 }
 
 /* ---------- Header & navigation ---------- */
@@ -107,10 +124,14 @@ footer :focus-visible {
 }
 
 .brand {
-  font-size: clamp(23px, 2.4vw, 34px);
-  font-weight: 300;
-  letter-spacing: .21em;
-  white-space: nowrap;
+  display: block;
+  line-height: 0;
+}
+
+.brand img {
+  display: block;
+  width: auto;
+  height: clamp(20px, 1.9vw, 28px);
 }
 
 /* Hamburger: mobile only (shown in the 760px breakpoint) */
@@ -169,7 +190,8 @@ footer :focus-visible {
 }
 
 .mobile-nav a[aria-current="page"] {
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--indigo);
 }
 
 /* ---------- Buttons & links ---------- */
@@ -180,15 +202,16 @@ footer :focus-visible {
   gap: 35px;
   min-width: 240px;
   padding: 18px 25px;
-  border: 1px solid #292929;
+  border: 1px solid var(--ink);
   letter-spacing: .19em;
   font-size: 12px;
+  font-weight: 500;
   text-align: center;
   transition: background-color .2s, color .2s;
 }
 
 .button:hover {
-  background: #dedbd5;
+  background: var(--stone);
 }
 
 .button.dark {
@@ -197,7 +220,22 @@ footer :focus-visible {
 }
 
 .button.dark:hover {
-  background: #555;
+  background: var(--indigo);
+  border-color: var(--indigo);
+}
+
+.button.light {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, .7);
+}
+
+.button.light:hover {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.button.light:focus-visible {
+  outline-color: var(--white);
 }
 
 .button[aria-disabled="true"] {
@@ -241,21 +279,40 @@ footer :focus-visible {
 
 .intro {
   text-align: center;
-  background: var(--paper);
-  padding: 66px 20px 82px;
+  background: var(--ink);
+  color: var(--white);
+  padding: 90px 20px 100px;
 }
 
-.intro h1 {
-  font-size: clamp(50px, 6vw, 92px);
-  margin: 17px 0;
+.intro .eyebrow {
+  color: #a9abb1;
 }
 
-.intro p {
-  font-size: 17px;
-  line-height: 1.8;
-  margin: 0 auto 32px;
+/* Wordmark filled with a polished-metal gradient (the SVG is used as a mask) */
+.intro-wordmark {
+  width: min(640px, 82vw);
+  aspect-ratio: 937 / 172;
+  margin: 34px auto 30px;
+  background: var(--silver);
+  -webkit-mask: url(assets/brand/wordmark.svg) center / contain no-repeat;
+  mask: url(assets/brand/wordmark.svg) center / contain no-repeat;
+}
+
+.intro-script {
+  display: block;
+  width: min(230px, 55vw);
+  height: auto;
+  margin: 0 auto 26px;
+  filter: invert(1);
+}
+
+.intro-statement {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.75;
   max-width: 560px;
-  color: var(--ink-soft);
+  margin: 0 auto 40px;
+  color: #d4d5d8;
 }
 
 .home-story {
@@ -274,6 +331,8 @@ footer :focus-visible {
 }
 
 .home-story-copy {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -282,34 +341,52 @@ footer :focus-visible {
 }
 
 .home-story h2 {
-  font-size: clamp(36px, 4vw, 64px);
-  line-height: 1.13;
+  font-size: clamp(34px, 3.6vw, 56px);
+  line-height: 1.1;
   margin: 26px 0;
+}
+
+/* Large outlined-feel monogram watermark */
+.story-monogram {
+  position: absolute;
+  right: -40px;
+  top: 30px;
+  width: clamp(160px, 18vw, 280px);
+  height: auto;
+  opacity: .07;
+  pointer-events: none;
 }
 
 .home-story p,
 .editorial-text p {
   font-size: 16px;
   line-height: 1.9;
-  color: #595754;
+  color: var(--ink-soft);
 }
 
 .consult {
   text-align: center;
-  padding: 90px 20px 110px;
-  background: var(--white);
+  padding: 110px 20px 120px;
+  background: var(--indigo-deep);
+  color: var(--white);
+}
+
+.consult .eyebrow {
+  color: #b3a9d6;
 }
 
 .consult h2 {
-  font-size: clamp(37px, 4vw, 62px);
-  margin: 22px 0;
+  font-size: clamp(30px, 3.4vw, 50px);
+  line-height: 1.2;
+  max-width: 820px;
+  margin: 26px auto;
 }
 
 .consult p {
   font-size: 16px;
   line-height: 1.8;
-  color: #666;
-  margin-bottom: 30px;
+  color: #cfcadf;
+  margin-bottom: 36px;
 }
 
 /* ---------- About ---------- */
@@ -327,6 +404,8 @@ footer :focus-visible {
 }
 
 .editorial-text {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -335,8 +414,8 @@ footer :focus-visible {
 }
 
 .editorial-text h1 {
-  font-size: clamp(42px, 4vw, 68px);
-  line-height: 1.15;
+  font-size: clamp(38px, 3.6vw, 60px);
+  line-height: 1.1;
 }
 
 .editorial-text .button {
@@ -351,7 +430,7 @@ footer :focus-visible {
 }
 
 .collection-heading h1 {
-  font-size: clamp(36px, 4vw, 58px);
+  font-size: clamp(34px, 3.6vw, 54px);
   margin: 14px 0;
 }
 
@@ -369,11 +448,12 @@ footer :focus-visible {
 }
 
 .stone-sidebar {
-  background: #eeece8;
+  background: var(--stone);
   padding: 35px 16px 35px 25px;
 }
 
 .sidebar-caption {
+  font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: .18em;
   color: var(--muted);
@@ -404,9 +484,9 @@ footer :focus-visible {
 }
 
 .stone-choice.active {
-  font-weight: 500;
-  color: #1e1e1e;
-  border-left: 2px solid #262626;
+  font-weight: 600;
+  color: var(--indigo);
+  border-left: 2px solid var(--indigo);
   padding-left: 8px;
 }
 
@@ -427,6 +507,7 @@ footer :focus-visible {
 }
 
 .photo-note {
+  font-family: var(--font-mono);
   position: absolute;
   bottom: 22px;
   left: 25px;
@@ -443,11 +524,11 @@ footer :focus-visible {
   justify-content: center;
   text-align: center;
   padding: 60px 10%;
-  background: var(--paper);
+  background: var(--white);
 }
 
 .stone-copy h2 {
-  font-size: clamp(35px, 3.6vw, 61px);
+  font-size: clamp(32px, 3.2vw, 52px);
   line-height: 1.15;
   margin: 35px 0;
 }
@@ -476,14 +557,15 @@ footer :focus-visible {
 }
 
 .contact-section h1 {
-  font-size: clamp(44px, 5vw, 72px);
+  font-size: clamp(38px, 4.4vw, 64px);
+  line-height: 1.1;
   margin: 30px 0;
 }
 
 .contact-section > p {
   line-height: 1.9;
   font-size: 17px;
-  color: #666;
+  color: var(--ink-soft);
 }
 
 .contact-section > p.contact-note {
@@ -502,24 +584,43 @@ footer :focus-visible {
 }
 
 .chosen-stone {
-  font-size: 14px;
+  font-family: var(--font-mono);
+  font-size: 13px;
   padding: 18px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--indigo);
+  color: var(--indigo);
   margin-top: 28px;
 }
 
 /* ---------- Footer ---------- */
 footer {
   text-align: center;
-  background: #222;
+  background: var(--ink);
   color: #eee;
-  padding: 55px 20px 35px;
+  padding: 70px 20px 40px;
 }
 
-.footer-brand {
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: .22em;
+footer img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  filter: invert(1);
+}
+
+.footer-monogram {
+  width: 54px;
+  margin-bottom: 30px;
+  opacity: .85;
+}
+
+.footer-wordmark {
+  width: min(260px, 60vw);
+}
+
+.footer-script {
+  width: 150px;
+  margin-top: 16px;
+  opacity: .8;
 }
 
 .footer-links {
@@ -540,6 +641,7 @@ footer {
 
 footer p,
 footer small {
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: .12em;
   color: #aaa;
@@ -587,9 +689,11 @@ footer small {
     display: block;
   }
 
+  .brand img {
+    height: 19px;
+  }
+
   .brand {
-    font-size: clamp(20px, 5.5vw, 27px);
-    letter-spacing: .16em;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -616,15 +720,11 @@ footer small {
   }
 
   .intro {
-    padding: 48px 22px 64px;
+    padding: 64px 24px 76px;
   }
 
-  .intro h1 {
-    font-size: clamp(46px, 11vw, 64px);
-  }
-
-  .intro p {
-    font-size: 15px;
+  .intro-statement {
+    font-size: 11px;
   }
 
   .home-story {
@@ -640,7 +740,11 @@ footer small {
   }
 
   .consult {
-    padding: 75px 25px 90px;
+    padding: 80px 25px 90px;
+  }
+
+  .consult h2 {
+    font-size: 30px;
   }
 
   /* About */
@@ -662,7 +766,7 @@ footer small {
   }
 
   .collection-heading h1 {
-    font-size: 38px;
+    font-size: 34px;
   }
 
   .collection-heading p {
@@ -676,7 +780,7 @@ footer small {
 
   .stone-sidebar {
     padding: 12px 0 10px;
-    background: #f3f1ed;
+    background: var(--stone);
     position: sticky;
     top: 0;
     z-index: 5;
@@ -699,7 +803,7 @@ footer small {
     flex: none;
     font-size: 13px;
     white-space: nowrap;
-    border: 1px solid #d7d3ce;
+    border: 1px solid var(--line);
     border-radius: 2px;
     padding: 12px 16px;
     background: var(--white);
@@ -707,8 +811,8 @@ footer small {
   }
 
   .stone-choice.active {
-    border: 1px solid var(--ink);
-    background: var(--ink);
+    border: 1px solid var(--indigo);
+    background: var(--indigo);
     color: var(--white);
     padding: 12px 16px;
   }
@@ -724,7 +828,7 @@ footer small {
   }
 
   .stone-copy h2 {
-    font-size: 43px;
+    font-size: 36px;
     margin: 25px 0;
   }
 
@@ -739,7 +843,7 @@ footer small {
   }
 
   .contact-section h1 {
-    font-size: 47px;
+    font-size: 38px;
   }
 
   .contact-section > p {
@@ -753,8 +857,8 @@ footer small {
 }
 
 @media (max-width: 380px) {
-  .brand {
-    font-size: 19px;
+  .brand img {
+    height: 16px;
   }
 
   .header-contact {

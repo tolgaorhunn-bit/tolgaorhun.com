@@ -15,7 +15,15 @@ Static site served at `https://tolgaorhun.com/diamonite/` via GitHub Pages.
 | `stones.json` | The 17 gemstone categories (name, slug, description) |
 | `assets/` | All images: `hero.webp`, `editorial-1…6.webp`, `home-hero.webp`, and one `<stone-slug>.webp` per gemstone |
 
-Fonts: Cormorant Garamond (headings) and Jost (body), loaded from Google Fonts with Georgia / Arial fallbacks.
+## Brand (Line Agency proposal — Direction 1)
+
+- `assets/brand/wordmark.svg`, `assets/brand/monogram.svg`: vector logo and "D" monogram, extracted from `DIAMONITE_PROPOSAL_V1.pdf`. Replace with the agency's final export files when available.
+- `assets/brand/script.png`: "Customized Jewellery" signature (cropped from the proposal, low resolution, replace with the final file).
+- `assets/brand/favicon.svg`: monogram in brand indigo.
+- Colours: black `#0c0c0d`, white, mist `#edeff1`, indigo `#2b1b59`, deep indigo `#150938`, polished-silver gradient on the home wordmark.
+- Fonts (Google Fonts, closest matches to the proposal): Manrope (headings and text), Space Mono (small captions and statements).
+
+When CSS/JS changes, bump the `?v=` number on the `style.css` / `app.js` links in every HTML page so browsers fetch the new files.
 
 ## Images
 
