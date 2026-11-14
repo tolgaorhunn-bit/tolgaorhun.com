@@ -55,3 +55,12 @@
     font-size: 11px;
   }
 }
+
+/* HERO IMAGE FIX */
+.hero {
+  background-image: url("https://tolgaorhun.com/diamonite/home-hero.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
