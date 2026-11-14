@@ -262,6 +262,7 @@ footer :focus-visible {
 
 /* ---------- Home ---------- */
 .home-hero {
+  position: relative;
   width: 100%;
   height: min(36vw, 500px);
   min-height: 260px;
@@ -275,6 +276,15 @@ footer :focus-visible {
   display: block;
   object-fit: cover;
   object-position: center 70%;
+}
+
+/* "Explore Gemstones" button placed over the hero banner */
+.hero-cta {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(24px, 4vw, 48px);
+  transform: translateX(-50%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
 }
 
 .intro {
@@ -311,7 +321,7 @@ footer :focus-visible {
   font-size: 12px;
   line-height: 1.75;
   max-width: 560px;
-  margin: 0 auto 40px;
+  margin: 0 auto;
   color: #d4d5d8;
 }
 
@@ -713,6 +723,14 @@ footer small {
   }
 
   /* Home */
+  .hero-cta {
+    min-width: 0;
+    gap: 18px;
+    padding: 14px 22px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
   .home-hero {
     height: 40svh;
     min-height: 240px;
@@ -725,6 +743,7 @@ footer small {
 
   .intro-statement {
     font-size: 11px;
+    margin-bottom: 0;
   }
 
   .home-story {
