@@ -73,8 +73,7 @@ img {
   outline-offset: 3px;
 }
 
-.button.dark:focus-visible,
-footer :focus-visible {
+.button.dark:focus-visible {
   outline-color: #c9c3ba;
 }
 
@@ -605,8 +604,9 @@ footer :focus-visible {
 /* ---------- Footer ---------- */
 footer {
   text-align: center;
-  background: var(--ink);
-  color: #eee;
+  background: var(--stone);
+  color: var(--ink);
+  border-top: 1px solid var(--line);
   padding: 70px 20px 40px;
 }
 
@@ -614,7 +614,6 @@ footer img {
   display: block;
   height: auto;
   margin: 0 auto;
-  filter: invert(1);
 }
 
 .footer-monogram {
@@ -654,7 +653,7 @@ footer small {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: .12em;
-  color: #aaa;
+  color: var(--ink-soft);
 }
 
 /* ==========================================================================
